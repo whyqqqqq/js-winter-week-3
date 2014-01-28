@@ -7,7 +7,7 @@ var cashRegister = {
 		this.totalAmt -= amt;	
 	},
 	total: function() {
-		console.log(this.totalAmt);
+		return this.totalAmt;
 	}
 };
 
