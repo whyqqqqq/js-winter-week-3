@@ -35,8 +35,11 @@ Don't forget the git workflow. If you need help, see the bottom of this document
 7. Do the exercises below (don't forget to save)
 8. `git add assignmentName.js` to add changes
 9. `git commit -m "commit message here"`
+
 10.`git pull` to update your local repo to match up with the remote repo. 
+
 11.`git push` (make sure you are still on the branch with your name on it before you push.)
+
 12. Submit a pull request on github
 13. Look at feedback
 14. Make changes
