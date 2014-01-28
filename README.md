@@ -25,7 +25,7 @@ Don't forget the git workflow. If you need help, see the bottom of this document
     4. It must have a total function that returns the current total cost of the purchase. 
 
 
-## Git Worflow From Start to Finish
+## Git Workflow From Start to Finish
 1. Make sure you are in the directory where you want your homework project directory to be stored
 2. `git clone 'urlGoesHere'`
 3. cd to the project directory
