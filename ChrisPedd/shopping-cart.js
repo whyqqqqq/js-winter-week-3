@@ -73,7 +73,6 @@ products = [
 
 
 console.log("\n*** WELCOME TO B.V. MART ***\n")
-// had to change arguments to strings to make it work properly within my array, would love to know why
 shoppingCart.add("item1", 4);
 shoppingCart.add("item2", 2);
 shoppingCart.add("item3", 10);
