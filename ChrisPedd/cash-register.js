@@ -6,6 +6,7 @@ var cashRegister = {
 	},
 	subtract: function (cashMonies) {
 		this.total -= cashMonies;
+		if (this.total < 0) throw new Error("nope.jpg");
 		console.log("You've taken $" + cashMonies + " out of the register.");
 	},
 };
