@@ -24,7 +24,7 @@ var shoppingCart = {
 				//removing amount from count if count is larger
 				if (this.items[i].count > amount) this.items[i].count -= amount;
 
-				//or if removed amount is as great as total remove item completely
+				//or if removed amount is as great as total, remove item completely
 				else this.items.splice(i,1);
 				
 			};
@@ -32,24 +32,27 @@ var shoppingCart = {
 
 	},
 	list: function (){
+
 		//prints out items going through items array
 		returnArray =[];
-		for(i = 0; i < this.items.length; i++){
 
+		this.items.forEach(function (entry){
 			//building a single string w quantity and description and adding to returning array
-			returnArray.push(this.items[i].count.toString() + ' X ' + this.items[i].description); 
-		};
+			returnArray.push(entry.count.toString() + ' X ' + entry.description);
+
+		});
+
 		return returnArray;
 	},
 	total: function (){
 		total =0;
 
 		//totals up items going through items array
-		for(i = 0; i < this.items.length; i++){
-			
+		this.items.forEach(function (entry){
+
 			//building a total one item at a time
-			total += this.items[i].count * this.items[i].price; 
-		};
+			total += entry.count * entry.price;
+		});
 		return total;
 
 	}
