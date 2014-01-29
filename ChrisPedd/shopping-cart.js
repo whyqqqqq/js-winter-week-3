@@ -1,6 +1,7 @@
 var shoppingCart = {
 	cart: [],
 	grandTotal: 0,
+	
 	add: function (itemName, itemCount) {
 		for (i=0; i<products.length; i++) {
 		     if (products[i].name == itemName) {
@@ -21,14 +22,13 @@ var shoppingCart = {
 		        if (this.cart[i].subCount < 0 ) throw new Error("nope.jpg");
 		        console.log("--Removed " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... from the shopping cart--");
 		     }
+		     if(this.cart[i].subCount === 0 ) this.cart.splice(i,1);
 		   }
 	},
 	list: function () {
 		console.log("\n--- Shopping Cart Contents:");
 		this.cart.forEach(function (thing) {
-			if (thing.subCount >0 ) {
-				console.log (thing.subCount + " X " + thing.description);
-			}
+			console.log (thing.subCount + " X " + thing.description);
 		});
 	},
 	total: function () {
@@ -44,31 +44,30 @@ var shoppingCart = {
 };
 
 products = [
-		item1 = {
+		{
 		name: "item1",
 		description: "Huggies Much Doge Diapers",
 		price: 19.77,
 		subCount: 0,
 		},
-	    item2 = {
+	    {
 	    name: "item2",
 		description: "Tylenol Extra Strength Methamphetamines",
 		price: 22.38,
 		subCount: 0,
 		},
-		item3 = {
+		{
 		name: "item3",
 		description: "Flents Easy Listening Jazzy Foam Ear Plugs",
 	    price: 11.50,
 	    subCount: 0,
 		},
-		item4 = {
+		{
 		name: "item4",
 		description: "Monsters Eat Whiny Children for Breakfast",
 	    price: 11.07,
 	    subCount: 0,
 		},
-
 ];
 
 
