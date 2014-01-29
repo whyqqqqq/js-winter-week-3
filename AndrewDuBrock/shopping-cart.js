@@ -55,10 +55,6 @@ var item4 = shoppingCart.add({description: "Monsters Eat Whiny Children",
                               count: 1,
                               price: 11.07});
 
-/* Not sure if I cheated here, but I changed the first arguments below to strings.
-I was having trouble bc by passing those as the above-defined variables
-(which are each shoppingCart.add functions), I was getting 'undefined' in there.
-*/
 shoppingCart.remove(item3, 6);
 shoppingCart.remove(item4, 1);
 
