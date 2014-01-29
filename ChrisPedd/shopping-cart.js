@@ -11,6 +11,7 @@ var shoppingCart = {
 		for (i=0; i<this.cart.length; i++) {
 		     if (this.cart[i].name == itemName) {
 		        this.cart[i].subCount -= itemCount;
+		        if (this.cart[i].subCount < 0 ) throw new Error("nope.jpg");
 		        console.log("--Removed " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... from the shopping cart--");
 		     }
 		   }
