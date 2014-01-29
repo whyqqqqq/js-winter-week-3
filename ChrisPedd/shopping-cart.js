@@ -3,6 +3,7 @@ var shoppingCart = {
 		for (i=0; i<this.cart.length; i++) {
 		     if (this.cart[i].name == itemName) {
 		        this.cart[i].subCount += itemCount;
+		        console.log("++Added " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... to the shopping cart++");
 		     }
 		   }
 	},
@@ -10,11 +11,12 @@ var shoppingCart = {
 		for (i=0; i<this.cart.length; i++) {
 		     if (this.cart[i].name == itemName) {
 		        this.cart[i].subCount -= itemCount;
+		        console.log("--Removed " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... from the shopping cart--");
 		     }
 		   }
 	},
 	list: function () {
-		console.log("--- Shopping Cart:");
+		console.log("\n--- Shopping Cart Contents:");
 		this.cart.forEach(function (thing) {
 			if (thing.subCount >0 ) {
 				console.log (thing.subCount + " X " + thing.description);
