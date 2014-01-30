@@ -1,15 +1,24 @@
+function Order (description, count, price) {
+  this.description = description;
+  this.count = count;
+  this.price = price;
+  this.id = Math.floor(Math.random() * 1000000000);
+}
+
+Order.prototype.cost = function () {
+  return this.count * this.price;
+}
+
 var shoppingCart = {
   stuff: [],
-  itemIdIndex: 0,
   add: function (thing) {
-    thing.id = this.itemIdIndex++;
     this.stuff.push(thing);
-    return thing.id;
+    return thing;
   },
-  remove: function (itemId, removeHowMany) {
+  remove: function (order, removeHowMany) {
     var i = -1;
     this.stuff.forEach(function (item, index) {
-      if (item.id === itemId)
+      if (item.id === order.id)
         i = index;
     });
     if (i === -1) throw new Error("Item not found in shopping cart!");
@@ -23,38 +32,31 @@ var shoppingCart = {
   },
   list: function () {
     var outputStr = "";
-    this.stuff.forEach(function (item) {
-      outputStr += item.count + ' X ' + item.description + " at " + item.price + " each.\n"
+    this.stuff.forEach(function (order) {
+      outputStr += order.count + ' X ' + order.description + " at " + order.price + " each.\n"
     });
     return outputStr;
   },
   total: function () {
     var sum = 0;
-    this.stuff.forEach(function (item) {
-      sum += item.price * item.count;
+    this.stuff.forEach(function (order) {
+      sum += order.cost();
     });
     return sum;
   }
 };
 
-var item1 = shoppingCart.add({description: "Huggies Little Snugglers Diapers",
-                              count: 4,
-                              price: 19.77});
+var orders = [new Order("Huggies Little Snugglers Diapers", 4, 19.77),
+              new Order("Tylenol Extra Strength Acetaminophen", 2, 22.38),
+              new Order("Flents Quiet Please Foam Ear Plugs", 10, 11.50),
+              new Order("Monsters Eat Whiny Children", 1, 11.07)];
 
-var item2 = shoppingCart.add({description: "Tylenol Extra Strength Acetaminophen",
-                              count: 2,
-                              price: 22.38});
+orders.forEach(function (order) {
+  shoppingCart.add(order);
+});
 
-var item3 = shoppingCart.add({description: "Flents Quiet Please Foam Ear Plugs",
-                              count: 10,
-                              price: 11.50});
-
-var item4 = shoppingCart.add({description: "Monsters Eat Whiny Children",
-                              count: 1,
-                              price: 11.07});
-
-shoppingCart.remove(item3, 6);
-shoppingCart.remove(item4, 1);
+shoppingCart.remove(orders[2], 6);
+shoppingCart.remove(orders[3], 1);
 
 console.log(shoppingCart.list());
 
