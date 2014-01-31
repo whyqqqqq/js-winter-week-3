@@ -4,6 +4,34 @@ js-winter-week-3
 PCS JS Winter 2014: Week 3. It's time for Objects!
 Don't forget the git workflow. If you need help, see the bottom of this document. 
 
+#Wednesday
+
+##Basic assignment
+- Copy appointment.js into your working directory. You're going to create an appointment constructor function
+- There's a basic appointment object defined in appointment.js to show you what properties an appointment should have. You don't need to keep the object itself.
+    + Make a constructor function called Appointment that can be called with the `new` operator.
+    + Add the following bit of code to the constructor so that it will still work if someone forgets to the `new` operator
+
+```javascript
+if(!(this instanceof Appointment))
+        return new Appointment();
+```
+
+## Intermediate Assignment
+- Make an `AppointmentBook` class to keep your appointments. It should be able to do the following:
+    + add a new appointment
+    + cancel an appointment
+    + reschedule an existing appointment for a new time
+    + list all existing appointments
+
+## Advanced Assignment
+- Dig into the functionality of Javascript's Date object. Add the following abilities to your AppointmentBook:
+    + return a list of all appointments for a given date
+    + return a list of all appointments for a range of dates
+    + return a list of all appointments for a given month
+
+These functions should return an array of Appointment objects.
+
 #Monday
 
 ##Basic assignment
@@ -25,7 +53,7 @@ Don't forget the git workflow. If you need help, see the bottom of this document
     4. It must have a total function that returns the current total cost of the purchase. 
 
 
-## Git Workflow From Start to Finish
+## Git Worflow From Start to Finish
 1. Make sure you are in the directory where you want your homework project directory to be stored
 2. `git clone 'urlGoesHere'`
 3. cd to the project directory
