@@ -1,29 +1,35 @@
 var shoppingCart = {
 	cart: [],
 	grandTotal: 0,
+	testTotal: 0,
 	
 	add: function (itemName, itemCount) {
+		//search products array, add item to the cart
 		for (i=0; i<products.length; i++) {
 		     if (products[i].name == itemName) {
 		        this.cart.push(products[i]);      
 		     }
 		}
+		//update quantity once in cart
 		for (i=0; i<this.cart.length; i++) {
 		     if (this.cart[i].name == itemName) {
 		        this.cart[i].subCount += itemCount;
-		        console.log("++Added " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... to the shopping cart++");
+			    this.testTotal += this.cart[i].price * this.cart[i].subCount;
+			    console.log("++Added " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... to the shopping cart++");
 		     }
 		}
 	},
 	remove: function (itemName, itemCount) {
 		for (i=0; i<this.cart.length; i++) {
-		     if (this.cart[i].name == itemName) {
+		    if (this.cart[i].name == itemName) {
 		        this.cart[i].subCount -= itemCount;
+		        this.testTotal -= this.cart[i].price * this.cart[i].subCount;
 		        if (this.cart[i].subCount < 0 ) throw new Error("nope.jpg");
 		        console.log("--Removed " + itemCount + " X " + this.cart[i].description.substring(0,20) + "... from the shopping cart--");
-		     }
-		     if(this.cart[i].subCount === 0 ) this.cart.splice(i,1);
-		   }
+		        
+		    }
+		    if(this.cart[i].subCount === 0 ) this.cart.splice(i,1);
+	   }
 	},
 	list: function () {
 		console.log("\n--- Shopping Cart Contents:");
@@ -82,3 +88,4 @@ shoppingCart.remove("item4", 1);
 
 shoppingCart.list();
 shoppingCart.total();
+//console.log(shoppingCart.testTotal); WHY YOU NO WORK?!
